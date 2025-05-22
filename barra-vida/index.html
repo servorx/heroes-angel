@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Selecciona tu Pokémon</title>
+  <script type="module" src="./js/barra-vida.js"></script>
+  <script type="module" src="./js/funcionalidad.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="select-container" id="selectionScreen">
+    <h2>Selecciona tu Pokémon</h2>
+    <label>Jugador 1:
+      <select id="player1Select"></select>
+    </label>
+    <br>
+    <label>Jugador 2:
+      <select id="player2Select"></select>
+    </label>
+    <br>
+    <button id="startBattleBtn">Iniciar Batalla</button>
+  </div>
+
+  <div class="battle-container" id="battleScreen" style="display:none;">
+    <div class="fighter">
+      <h3 id="p1Name"></h3>
+      <div class="health-bar" id="p1Bar" style="width:100%;"></div>
+      <p id="p1HP"></p>
+    </div>
+    <div class="fighter">
+      <h3 id="p2Name"></h3>
+      <div class="health-bar" id="p2Bar" style="width:100%;"></div>
+      <p id="p2HP"></p>
+    </div>
+    <button id="btnP1">Atacar Jugador 1</button>
+    <button id="btnP2">Atacar Jugador 2</button>
+    <div class="log" id="battleLog"></div>
+  </div>
+</body>
+</html>

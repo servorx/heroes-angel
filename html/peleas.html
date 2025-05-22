@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pelea</title>
+  <link rel="stylesheet" href="/css/peleas.css" />
+  <script src="/js/peleas.js" defer></script>
+</head>
+<body>
+  <div id="modalVictoria">
+    <div class="contenido">
+      <h2 id="ganadorTexto">¡Ganador!</h2>
+      <button onclick="cerrarModal()">Volver a la Arena</button>
+    </div>
+  </div>
+
+  <main class="combate">
+    <div class="jugador" id="jugador1">
+      <h2 id="nombre-j1"></h2>
+      <img id="imagen-j1" />
+      <div class="barra-vida">
+        <div id="vida-barra-j1" class="vida-barra"></div>
+        <span id="vida-texto-j1"></span>
+      </div>
+      <button onclick="atacar('jugador1')">Atacar</button>
+    </div>
+
+    <div class="jugador" id="jugador2">
+      <h2 id="nombre-j2"></h2>
+      <img id="imagen-j2" />
+      <div class="barra-vida">
+        <div id="vida-barra-j2" class="vida-barra"></div>
+        <span id="vida-texto-j2"></span>
+      </div>
+      <button onclick="atacar('jugador2')">Atacar</button>
+    </div>
+  </main>
+</body>
+</html>

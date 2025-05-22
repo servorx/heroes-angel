@@ -1,0 +1,46 @@
+body {
+    
+  background-image: url('../storage/img/fondo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: 'Press Start 2P';
+  height: 100vh;
+}
+
+.select-container,
+.battle-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+select,
+button {
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
+}
+
+.fighter {
+  margin: 20px 0;
+}
+
+.health-bar {
+  height: 20px;
+  background-color: green;
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.log {
+  text-align: left;
+  background: #eee;
+  height: 150px;
+  overflow-y: auto;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 14px;
+}

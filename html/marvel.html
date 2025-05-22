@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/arena.css" />
+  <script src="/js/marvel.js" defer></script>
+  <script src="/js/buscador.js"></script>
+  <link rel="icon" href="/assets/img/logo.png" type="image/png" />
+  <title>HEROES MARVEL</title>
+</head>
+<body>
+  <header>
+    <img id="logo" src="/assets/img/logo.png" alt="Logo" />
+    <nav>
+      <a href="../index.html"><button id="btn-home" class="nav-button">Home</button></a>
+      <a href="/html/dc.html"><button id="btn-dc" class="nav-button">DC</button></a>
+      <button id="btn-marvel" class="nav-button active">Marvel</button>
+      <a href="/html/arena.html"><button id="btn-arena" class="nav-button">Arena</button></a>
+    </nav>
+  </header>
+
+  <video autoplay muted loop id="fondo-video">
+    <source src="/assets/video/marvel.mp4" type="video/mp4" />
+    Tu navegador no soporta el video de fondo.
+  </video>
+  <search-box>
+    <div class="row">
+      <input type="text" 
+        class="search-bar" 
+        placeholder="Buscar personaje...                                                                                                                                                                                                             " 
+        autocomplete="off"
+      >
+    </div>
+  </search-box>
+
+  <div id="carta-container"></div>
+
+  <div class="heroes">
+    <cartas-marvel
+      nombre="Iron Man"
+      nombreClave="Tony Stark"
+      universo="Marvel"
+      presentacion="1963"
+      descripcion="Genio multimillonario, filántropo y superhéroe con una armadura de alta tecnología."
+      imagen="/assets/img/Iron_Man.jpg">
+    </cartas-marvel>
+
+    <cartas-marvel
+      nombre="Spiderman"
+      nombreClave="Peter Parker"
+      universo="Marvel"
+      presentacion="1962"
+      descripcion="Un joven con habilidades arácnidas que protege a Nueva York como Spider-Man."
+      imagen="/assets/img/spiderman.jpg">
+    </cartas-marvel>
+
+    <cartas-marvel
+      nombre="Moon Knight"
+      nombreClave="Marc Spector"
+      universo="Marvel"
+      presentacion="1975"
+      descripcion="Ex-marine con un trastorno de personalidad que actúa como vigilante místico."
+      imagen="/assets/img/Moon_Knight.jpg">
+    </cartas-marvel>
+
+    <cartas-marvel
+      nombre="Daredevil"
+      nombreClave="Matt Murdock"
+      universo="Marvel"
+      presentacion="1964"
+      descripcion="Abogado ciego con sentidos sobrehumanos que lucha por la justicia en Hell’s Kitchen."
+      imagen="/assets/img/Daredevil.jpg">
+    </cartas-marvel>
+
+    <cartas-marvel
+      nombre="venom"
+      nombreClave="Eddie Brock"
+      universo="Marvel"
+      presentacion="1988"
+      descripcion="Periodista que se convierte en el antihéroe simbiótico Venom tras unirse a un alienígena."
+      imagen="/assets/img/Venom.jpg">
+    </cartas-marvel>
+  </div>
+</body>
+  <footer>
+      ©Camusplands 2025,
+      ©MARVEL Comis 2025, todos los derechos reservados
+      ©DC comics 2025, todos los derechos reservados
+    </footer>
+</html>

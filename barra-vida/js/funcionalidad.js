@@ -1,0 +1,80 @@
+const db = {
+    Primera: [
+      { id: "143", nombre: "Snorlax", vida: 50, ataque: 4 },
+      { id: "6", nombre: "Charizard", vida: 39, ataque: 9 },
+      { id: "25", nombre: "Pikachu", vida: 35, ataque: 6 },
+      { id: "129", nombre: "Magikarp", vida: 20, ataque: 2 }
+    ],
+    Septima: [
+      { id: "722", nombre: "Rowlet", vida: 32, ataque: 5 },
+      { id: "727", nombre: "Incineroar", vida: 30, ataque: 8 },
+      { id: "802", nombre: "Zeraora", vida: 40, ataque: 9 },
+      { id: "730", nombre: "Primarina", vida: 50, ataque: 8 }
+    ]
+  };
+
+  let player1 = {}, player2 = {}, turno = 1;
+
+  function populateSelectors() {
+    const allPokemon = [...db.Primera, ...db.Septima];
+    const sel1 = document.getElementById('player1Select');
+    const sel2 = document.getElementById('player2Select');
+
+    allPokemon.forEach(poke => {
+      const opt1 = new Option(poke.nombre, JSON.stringify(poke));
+      const opt2 = new Option(poke.nombre, JSON.stringify(poke));
+      sel1.appendChild(opt1);
+      sel2.appendChild(opt2);
+    });
+  }
+
+  function startBattle() {
+    player1 = JSON.parse(document.getElementById('player1Select').value);
+    player2 = JSON.parse(document.getElementById('player2Select').value);
+
+    player1.hp = player1.vida;
+    player2.hp = player2.vida;
+
+    document.getElementById('p1Name').innerText = player1.nombre;
+    document.getElementById('p2Name').innerText = player2.nombre;
+    document.getElementById('selectionScreen').style.display = 'none';
+    document.getElementById('battleScreen').style.display = 'block';
+    updateUI();
+  }
+
+  function updateUI() {
+    document.getElementById('p1Bar').style.width = (player1.hp / player1.vida * 100) + '%';
+    document.getElementById('p2Bar').style.width = (player2.hp / player2.vida * 100) + '%';
+    document.getElementById('p1HP').innerText = `${player1.hp} / ${player1.vida} HP`;
+    document.getElementById('p2HP').innerText = `${player2.hp} / ${player2.vida} HP`;
+    document.getElementById('btnP1').disabled = turno !== 1;
+    document.getElementById('btnP2').disabled = turno !== 2;
+  }
+
+  function attack(playerNum) {
+    const attacker = playerNum === 1 ? player1 : player2;
+    const defender = playerNum === 1 ? player2 : player1;
+
+    const dmg = attacker.ataque + Math.floor(Math.random() * 1.5);
+    defender.hp = Math.max(0, defender.hp - dmg);
+
+    log(`${attacker.nombre} hace ${dmg} de daño a ${defender.nombre}`);
+
+    if (defender.hp == 0) {
+      log(`🎉 ${attacker.nombre} gana la batalla!`);
+      document.getElementById('btnP1').disabled = true;
+      document.getElementById('btnP2').disabled = true;
+      return;
+    }
+
+    turno = turno === 1 ? 2 : 1;
+    updateUI();
+  }
+
+  function log(msg) {
+    const logBox = document.getElementById('battleLog');
+    logBox.innerHTML += `<div>${msg}</div>`;
+    logBox.scrollTop = logBox.scrollHeight;
+  }
+
+  populateSelectors();
