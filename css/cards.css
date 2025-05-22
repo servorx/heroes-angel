@@ -1,0 +1,17 @@
+.heroes {
+  margin: 5%;
+  display: flex;
+  /* bloque de fondo semi transparente  */
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 65%;
+  gap: 1.25rem;
+  margin-left: 10%;
+  margin-right: 10%;
+  color: #fff;
+  padding: 10rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  /* permite que los elementos se acomoden por si solos en caso de que no quepan  */
+  flex-wrap: wrap;
+}

@@ -3,17 +3,16 @@
   /* se eliminan los margenes y rellenos por defecto de absolutamente todos los elementos */
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
 }
 
 /* Estos son los estilo generales que se les aplica al body */
 body {
   margin: 0;
   background-image: url(https://i.pinimg.com/736x/a7/2a/02/a72a022f37c47d8d294e85577737f362.jpg);
-  background-size: cover; /* La imagen cubre todo el contenedor */
+  background-size: auto; /* La imagen se acomoda al contenedor */
   background-position: center; /* Centra la imagen */
-  background-repeat: repeat; /* Evita que la imagen se repita */
-  /* fuente principal */
-  font-family: 'Montserrat', Arial, sans-serif;
+  background-repeat: repeat;
   /* hace que el height se acomode automaticamente  */
   height: 100%;
   /* para el footer estatico */
@@ -22,23 +21,6 @@ body {
   min-height: 100vh;
 }
 
-.heroes {
-  margin: 5%;
-  display: flex;
-  /* bloque de fondo semi transparente  */
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 65%;
-  gap: 1.25rem;
-  margin-left: 10%;
-  margin-right: 10%;
-  color: #fff;
-  padding: 10rem;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  /* permite que los elementos se acomoden por si solos en caso de que no quepan  */
-  flex-wrap: wrap;
-}
 
 header {
   display: flex;
