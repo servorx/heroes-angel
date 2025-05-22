@@ -1,11 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero Arena</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <!--el de arriba es un tipo de letra especial-->
+  <!-- esto es para colocar el icono en la parte de la pestaña -->
+  <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+  <!-- importacion de las fuente aunque en realidad no cambian nada en el programa -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gravitas+One&family=Marvel:ital,wght@0,400;0,700;1,400;1,700&family=Tagesschrift&display=swap" rel="stylesheet">
+  <!-- importacion de los estilos y el script base -->
+  <link rel="stylesheet" href="css/main.css"/>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-  
+  <!-- insertar audio al cargar la pagina de musica epica -->
+  <audio src="/assets/sound/Heroes-yt-audio.mp3" autoplay loop ></audio>
+  <header>
+    <!-- logo de la parte del header de la pagina -->
+    <img id="logo" src="/assets/img/logo.png" alt="Logo">
+    <nav>
+      <!-- esta barra de navegacion es de los botones principales del header -->
+      <button id="btn-home" class="nav-button active">Home</button>
+      <a href="/html/dc.html"><button id="btn-dc" class="nav-button">DC</button></a>
+      <a href="/html/marvel.html"><button id="btn-marvel" class="nav-button">Marvel</button></a>
+      <a href="/html/arena.html"><button id="btn-arena" class="nav-button">Arena</button></a>
+    </nav>
+  </header>
+  <main id="app" class="app">
+    <!-- todo este div contiene el contenido de la parte con un fondo medianamente oscuro y un mensaje de bienvenida -->
+    <div class="homecont">
+      <div class="imagen-container">
+        <div class="contenedortranspa">
+          <img id="main-image" src="/assets/img/logo.png" alt="Imagen principal" />
+        </div>
+      </div>
+      <div class="texto-contenido" id="texto">
+        <h1 class="texto-index-fuego">HEROE</h1> 
+        <h2 class="texto-index-fuego">El mundo está al borde del caos... pero aún hay esperanza.
+          Desde las sombras, se alzan leyendas. Desde las ruinas, nacen héroes.
+          Este no es solo un juego de cartas. Es una batalla por el destino de la humanidad.</h2>
+        <div class="botonarena">
+          <a href="/html/arena.html">COMBATE</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- footer de creditos innecesarios -->
+  <footer>
+    ©Camusplands 2025,
+    ©MARVEL Comis 2025, todos los derechos reservados
+    ©DC comics 2025, todos los derechos reservados.
+  </footer>
 </body>
 </html>

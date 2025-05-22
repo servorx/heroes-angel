@@ -1,77 +1,3 @@
-// Modificar para tener datos completos
-const personajesDC = [
-  {
-    id: 6,
-    universo: "DC",
-    nombre: "Bruce Wayne",
-    nombreClave: "Batman",
-    descripcion: "Detective experto con habilidades de combate y tecnología avanzada.",
-    trajes: ["Clásico", "Arkham", "Justice League"],
-    ataque1: 25,
-    ataque2: 38,
-    ataque3: 30,
-    debilidad: "Humano sin poderes",
-    resistencia: 80,
-    imagen: "/assets/img/batman.jpg"
-  },
-  {
-    id: 7,
-    universo: "DC",
-    nombre: "Unknown",
-    nombreClave: "Joker",
-    descripcion: "El príncipe payaso del crimen, impredecible y peligroso.",
-    trajes: ["Morado clásico", "The Dark Knight", "Arkham"],
-    ataque1: 27,
-    ataque2: 26,
-    ataque3: 30,
-    debilidad: "Locura impredecible",
-    resistencia: 30,
-    imagen: "/assets/img/guason.jpg"
-  },
-  {
-    id: 8,
-    universo: "DC",
-    nombre: "Hal Jordan",
-    nombreClave: "Linterna Verde",
-    descripcion: "Miembro del cuerpo intergaláctico con el poder del anillo.",
-    trajes: ["Clásico", "New 52", "Green Lantern Corps"],
-    ataque1: 28,
-    ataque2: 30,
-    ataque3: 20,
-    debilidad: "Miedo",
-    resistencia: 35,
-    imagen: "/assets/img/greenlintern.jpg"
-  },
-  {
-    id: 9,
-    universo: "DC",
-    nombre: "Barry Allen",
-    nombreClave: "Flash",
-    descripcion: "El hombre más rápido del mundo, maestro de la velocidad.",
-    trajes: ["Clásico", "Flashpoint", "Serie CW"],
-    ataque1: 27,
-    ataque2: 38,
-    ataque3: 29,
-    debilidad: "Impulsividad",
-    resistencia: 40,
-    imagen: "/assets/img/flash.jpg"
-  },
-  {
-    id: 10,
-    universo: "DC",
-    nombre: "Clark Kent",
-    nombreClave: "Superman",
-    descripcion: "Hombre de acero con fuerza, vuelo y visión láser.",
-    trajes: ["Clásico", "Black Suit", "Injustice"],
-    ataque1: 47,
-    ataque2: 40,
-    ataque3: 39,
-    debilidad: "Kryptonita",
-    resistencia: 100,
-    imagen: "/assets/img/superman.jpg"
-  }
-];
-
 class Cartasdc extends HTMLElement {
   constructor() {
     super();
@@ -87,7 +13,7 @@ class Cartasdc extends HTMLElement {
           height: 28rem;
           margin: 1rem;
           perspective: 50rem;
-          font-family: 'Arial', sans-serif;
+          font-family: 'Montserrat', 'Arial', sans-serif;
         }
 
         .card {
@@ -97,16 +23,16 @@ class Cartasdc extends HTMLElement {
           text-decoration: none;
           transition: transform 0.8s;
           transform-style: preserve-3d;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          border-radius: 10px;
-          cursor: default;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          border-radius: 15px;
+          cursor: pointer;
           transition: transform 0.4s ease, box-shadow 0.4s ease;
           cursor: pointer;
           scrollbar-width: none;
         }
         .card:hover {
           transform: translateY(-10px) scale(1.03) rotateZ(1deg);
-          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 12px 24px rgba(0, 0, 255, 0.3), 0 12px 24px rgba(0, 0, 255, 0.3);;
         }
 
         .card.flipped {
@@ -142,18 +68,18 @@ class Cartasdc extends HTMLElement {
           padding: 1rem;
         }
 
+        #nombreClave {
+          font-size: 1.2rem;
+          color: #64B5F6 ;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+
         #nombre {
           font-size: 1.2rem;
           font-weight: bold;
           color: #333;
           margin-bottom: 5px;
-        }
-
-        #nombreClave {
-          font-size: 1.2rem;
-          color: #666;
-          font-weight: bold;
-          margin-bottom: 10px;
         }
 
         #universo {
@@ -180,6 +106,7 @@ class Cartasdc extends HTMLElement {
           font-size: 1.2rem;
           font-weight: bold;
           color: #0B132B;
+          text-shadow: 0 0 5px rgba(0, 0, 255, 0.5), 0 0 5px rgba(0, 0, 255, 0.5);; 
         }
         .stat-label {
           font-size: 0.8rem;
@@ -225,8 +152,8 @@ class Cartasdc extends HTMLElement {
         <div class="card-front">
           <img id="imagen">
           <div class="card-content">
-            <div id="nombre"></div>
             <div id="nombreClave"></div>
+            <div id="nombre"></div>
             <div id="universo"></div>
           </div>
         </div>
@@ -327,3 +254,44 @@ class Cartasdc extends HTMLElement {
 }
 
 customElements.define('cartas-dc', Cartasdc);
+
+/* class UserProfile extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
+
+  connectedCallback() {
+    const userId = this.getAttribute('user-id');
+
+    fetch(`http://localhost:3000/users/${userId}`)
+      .then(response => response.json())
+      .then(user => {
+        this.render(user);
+      })
+      .catch(error => {
+        this.shadowRoot.innerHTML = `<p>Error al cargar usuario</p>`;
+        console.error(error);
+      });
+  }
+
+  render(user) {
+    this.shadowRoot.innerHTML = `
+      <style>
+        .card {
+          padding: 1rem;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          background: #fff;
+        }
+      </style>
+      <div class="card">
+        <h3>${user.name}</h3>
+        <p>${user.email}</p>
+      </div>
+    `;
+  }
+}
+
+customElements.define('user-profile', UserProfile);
+*/

@@ -16,6 +16,10 @@ body {
   font-family: 'Montserrat', Arial, sans-serif;
   /* hace que el height se acomode automaticamente  */
   height: 100%;
+  /* para el footer estatico */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .heroes {
@@ -24,10 +28,10 @@ body {
   /* bloque de fondo semi transparente  */
   background-color: rgba(0, 0, 0, 0.5);
   width: 65%;
-  gap: 20px;
+  gap: 1.25rem;
   margin-left: 10%;
   margin-right: 10%;
-  color: white;
+  color: #fff;
   padding: 10rem;
   text-align: center;
   align-items: center;
@@ -133,7 +137,7 @@ nav {
 .nav-button.active {
   background-color: #07314de2;
   transition: all 0.5s ease;
-  color: #ffffff;
+  color: #fff;
   box-shadow: 0px 4px 20px rgb(14, 19, 34) ;
   /* le agregue un keyframe de pulsar para que cuando el usuario le de click se apliquen unos efectos de aminacion y resalte por el shadow */
   animation: pulsar 0.7s infinite alternate;
@@ -158,8 +162,10 @@ nav {
 
 /* contenido de la parte principal de la pagina Home */
 main {
-  padding: 5rem 1.3rem;
-  text-align: center;
+  /* padding: 5rem 1.3rem;
+  text-align: center; */
+  flex: 1;
+  padding: 2rem;
 }
 
 /* diseño de la imagen principal del comienzo */
@@ -272,6 +278,8 @@ footer{
   gap: 1rem;
   color: white;
   height: 100%;
+  flex-grow: 1;
+  text-align: center;
 }
 
 /* diseños del texto que tieie un tipo de animacion de fuego */
@@ -407,7 +415,7 @@ footer{
 }
 
 
-/*reponsividad*/
+/*reponsividad para la pantallas de protatil y la de Darwin que es mas grande*/
 @media (min-width: 768px) and (max-width: 1550px) {
   #logo {
     width: 4.5rem;
@@ -427,6 +435,10 @@ footer{
   }
   .texto-contenido {
     max-width: 90%;
+  }
+  .contenedortranspa{
+    width: 100%;
+    max-width: 20rem;
   }
   /* .contenedor-arena {
     flex-direction: row;

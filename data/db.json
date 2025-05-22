@@ -6,13 +6,11 @@
         "nombre": "Tony Stark",
         "nombreClave": "Iron Man",
         "descripcion": "Genio millonario con una armadura de alta tecnología.",
-        "ataque1":10,
-        "ataque2": 20,
-        "ataque3": 30,
+        "ataque": 30,
         "debilidad": "Dependencia tecnológica",
         "resistencia": 700,
-        "imagen": "./assets/img/iron_man.jpg",
-        "gifAtaque": "./assets/video/iron_man_attack.gif"
+        "imagen": "../assets/img/iron_man.jpg",
+        "gifAtaque": "../assets/video/iron_man_attack.gif"
         },
         {
         "id": 2,
@@ -20,13 +18,11 @@
         "nombre": "Peter Parker",
         "nombreClave": "Spiderman",
         "descripcion": "Joven héroe con habilidades arácnidas y sentido arácnido.",
-        "ataque1": 45,
-        "ataque2": 28,
-        "ataque3":30,
+        "ataque": 45,
         "debilidad": "Inexperiencia",
         "resistencia": 50,
-        "imagen": "./assets/img/spiderman.jpg",
-        "gifAtaque": "./assets/video/spiderman_attack.gif"
+        "imagen": "../assets/img/spiderman.jpg",
+        "gifAtaque": "../assets/video/spiderman_attack.gif"
         },
         {
         "id": 3,
@@ -34,13 +30,11 @@
         "nombre": "Marc Spector",
         "nombreClave": "Moon Knight",
         "descripcion": "Guardián nocturno con poderes de Khonshu.",
-        "ataque1": 50,
-        "ataque2": 80,
-        "ataque3":90,
+        "ataque":90,
         "debilidad": "Trastorno de identidad",
         "resistencia": 150,
-        "imagen": "./assets/img/moon_knight.jpg",
-        "gifAtaque": "./assets/video/moon_knight_attack.gif"
+        "imagen": "../assets/img/moon_knight.jpg",
+        "gifAtaque": "../assets/video/moon_knight_attack.gif"
         },
         {
         "id": 4,
@@ -48,13 +42,11 @@
         "nombre": "Matt Murdock",
         "nombreClave": "Daredevil",
         "descripcion": "Abogado ciego con sentidos aumentados que lucha contra el crimen.",
-        "ataque1": 27,
-        "ataque2": 17,
-        "ataque3":20,
+        "ataque":20,
         "debilidad": "Humano sin poderes",
         "resistencia": 200,
-        "imagen": "./assets/img/daredevil.jpg",
-        "gifAtaque": "./assets/video/daredevil_attack.gif"
+        "imagen": "../assets/img/daredevil.jpg",
+        "gifAtaque": "../assets/video/daredevil_attack.gif"
         },
         {
         "id": 5,
@@ -62,13 +54,11 @@
         "nombre": "Eddie Brock",
         "nombreClave": "Venom",
         "descripcion": "Simbiote con habilidades de fuerza sobrehumana y regeneración.",
-        "ataque1": 29,
-        "ataque2": 34,
-        "ataque3":20,
+        "ataque": 29,
         "debilidad": "Sonido y fuego",
         "resistencia": 600,
-        "imagen": "./assets/img/venom.jpg",
-        "gifAtaque": "./assets/video/venom_attack.gif"
+        "imagen": "../assets/img/venom.jpg",
+        "gifAtaque": "../assets/video/venom_attack.gif"
         },
         {
         "id": 6,
@@ -76,13 +66,11 @@
         "nombre": "Bruce Wayne",
         "nombreClave": "Batman",
         "descripcion": "Detective experto con habilidades de combate y tecnología avanzada.",
-        "ataque1": 25,
-        "ataque2": 38,
-        "ataque3":30,
+        "ataque": 38,
         "debilidad": "Humano sin poderes",
         "resistencia": 500,
-        "imagen": "./assets/img/batman.jpg",
-        "gifAtaque": "./assets/video/batman_attack.gif"
+        "imagen": "../assets/img/batman.jpg",
+        "gifAtaque": "../assets/video/batman_attack.gif"
         },
         {
         "id": 7,
@@ -90,13 +78,11 @@
         "nombre": "Unknown",
         "nombreClave": "Joker",
         "descripcion": "El príncipe payaso del crimen, impredecible y peligroso.",
-        "ataque1": 27,
-        "ataque2": 26,
-        "ataque3":30,
+        "ataque": 27,
         "debilidad": "Locura impredecible",
         "resistencia": 100,
-        "imagen": "./assets/img/guason.jpg",
-        "gifAtaque": "./assets/video/joker_attack.gif"
+        "imagen": "../assets/img/guason.jpg",
+        "gifAtaque": "../assets/video/joker_attack.gif"
         },
         {
         "id": 8,
@@ -104,13 +90,11 @@
         "nombre": "Hal Jordan",
         "nombreClave": "Linterna Verde",
         "descripcion": "Miembro del cuerpo intergaláctico con el poder del anillo.",
-        "ataque1": 28,
-        "ataque2": 30,
-        "ataque3":20,
+        "ataque": 28,
         "debilidad": "Miedo",
         "resistencia": 200,
-        "imagen": "assets/img/greenlintern.jpg",
-        "gifAtaque": "assets/video/green_lantern_attack.gif"
+        "imagen": "../assets/img/greenlintern.jpg",
+        "gifAtaque": "../assets/video/green_lantern_attack.gif"
         },
         {
         "id": 9,
@@ -118,13 +102,11 @@
         "nombre": "Barry Allen",
         "nombreClave": "Flash",
         "descripcion": "El hombre más rápido del mundo, maestro de la velocidad.",
-        "ataque1": 27,
-        "ataque2": 38,
-        "ataque3":29,
+        "ataque": 38,
         "debilidad": "Impulsividad",
         "resistencia": 40,
-        "imagen": "assets/img/flash.jpg",
-        "gifAtaque": "assets/video/flash_attack.gif"
+        "imagen": "../assets/img/flash.jpg",
+        "gifAtaque": "../assets/video/flash_attack.gif"
         },
         {
         "id": 10,
@@ -132,13 +114,11 @@
         "nombre": "Clark Kent",
         "nombreClave": "Superman",
         "descripcion": "Hombre de acero con fuerza, vuelo y visión láser.",
-        "ataque1": 47,
-        "ataque2": 40,
-        "ataque3":39,
+        "ataque": 47,
         "debilidad": "Kryptonita",
         "resistencia": 800,
-        "imagen": "assets/img/superman.jpg",
-        "gifAtaque": "assets/video/superman_attack.gif"
+        "imagen": "../assets/img/superman.jpg",
+        "gifAtaque": "../assets/video/superman_attack.gif"
         }
     ]
 }
