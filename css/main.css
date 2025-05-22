@@ -10,60 +10,32 @@
 body {
   margin: 0;
   background-image: url(https://i.pinimg.com/736x/a7/2a/02/a72a022f37c47d8d294e85577737f362.jpg);
-  background-size: auto; /* La imagen se acomoda al contenedor */
-  background-position: center; /* Centra la imagen */
+  background-size: auto;
+  background-position: center;
   background-repeat: repeat;
-  /* hace que el height se acomode automaticamente  */
   height: 100%;
-  /* para el footer estatico */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* filtro sutil para mejorar el dise;o del contenido */
+  backdrop-filter: brightness(0.9);
 }
 
-
+/* estilos del header de todas las paginas */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #111113;
   padding: 0 3rem;
-  height: 10rem; /* AUMENTADO */
+  height: 10rem; 
   box-sizing: border-box;
-  /* agregue animaciones en el header de aparecer lentamente, los pixeles y el ultimo valor es para el sombreado del header */
   /* esto genera un efecto de sombra intensa */
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 2);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 5);
+  /* agregue animaciones en el header de aparecer lentamente, los pixeles y el ultimo valor es para el sombreado del header */
   /*  el segundo valor define los segundos que se demora la animacion */
   /* animacion al cargar */
   animation: apear 1.5s ease-out;
-}
-
-/* Este es el keyframe de la animacion apear*/
-/* esto genera que el header aparezca desde arriba  */
-@keyframes apear {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 10;
-    transform: translateY(0);
-  }
-}
-
-/* linea decorativa por cada vez que se convoque esta etiqueta */
-hr{
-  border: none;
-  height: 3px;
-  background-color: #ff6b6b;
-  margin: 20px 0;
-  border-radius: 2px;
-}
-
-.contenedortranspa {
-  width: 65rem;
-  margin: 20px auto; /* Centrado horizontal */
-  border-radius: 8px; /* Bordes redondeados */
 }
 
 #logo {
@@ -115,7 +87,7 @@ nav {
   box-shadow: 0px 10px 20px rgb(191, 196, 201);
 }
 
-/* cuando el bvoton esta activo cambia su diseño */
+/* cuando el boton esta activo cambia su diseño */
 .nav-button.active {
   background-color: #07314de2;
   transition: all 0.5s ease;
@@ -142,12 +114,48 @@ nav {
   box-shadow: 30px 30px 30px rgb(191, 196, 201, );
 }
 
+/* Este es el keyframe de la animacion apear*/
+/* esto genera que el header aparezca desde arriba  */
+@keyframes apear {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 10;
+    transform: translateY(0);
+  }
+}
+
 /* contenido de la parte principal de la pagina Home */
 main {
   /* padding: 5rem 1.3rem;
   text-align: center; */
   flex: 1;
-  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* contenedor de app, es decir, la parte principal */
+.app{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+
+/* toda esta parte es la de la pagina principal con el logo principal y el texto de bienvenida */
+.homecont{
+  display: flex;
+  width: 70rem;
+  height: 100%;
+  color: #fff;
+  padding: 10rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /* diseño de la imagen principal del comienzo */
@@ -166,28 +174,10 @@ main {
   object-fit: cover;
 }
 
-/* contenedor de app, es decir, la parte principal */
-.app{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  height: auto;
-}
-
-/* toda esta parte es la de la pagina principal con el logo principal y el texto de bienvenida */
-.homecont{
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 70rem;
-  height: 100%;
-  color: white;
-  padding: 10rem;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.transparent-container {
+  width: 100%;
+  margin: 1.2rem auto; /* Centrado horizontal */
+  border-radius: 8px; /* Bordes redondeados */
 }
 
 /* contenido de la parte sombreada de la pagina principal */
@@ -205,7 +195,6 @@ main {
 
 /* diseños del titulo principal */
 h1{
-  font-family: "Gravitas One", serif;
   font-size: 3rem;
   margin-bottom: 2rem;
   color: #fff;
@@ -214,6 +203,39 @@ h1{
   text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* diseños del texto que tieie un tipo de animacion de fuego */
+.texto-fuego {
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  animation: fuego 1s infinite;
+  margin-top: 30px;
+}
+.texto-index-fuego {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  animation: fuego 3s infinite;
+  margin-top: 30px;
+}
+
+/*jueguen con los colores del texto del index*/
+@keyframes fuego {
+  0% {
+    text-shadow: 0 0 5px #e63946, 0 0 10px #d62828;
+    color: #fff;
+  }
+  50% {
+    text-shadow: 0 0 10px rgb(135, 102, 255), 0 0 20px rgb(61, 22, 170), 0 0 30px rgb(37,0,48);
+    color: rgb(45, 8, 59);
+  }
+  100% {
+    text-shadow: 0 0 5px #0077b6, 0 0 10px #1d3557;
+    color: #fff;
+  }
+}
 
 /*boton del inicio para llevar a arena directamente*/
 .botonarena {
@@ -250,6 +272,10 @@ h1{
   box-shadow: 0 5px 15px rgba(61, 22, 99, 0.4);
 }
 
+.boton-header{
+  background-color: rgba(134, 6, 6, 0.829);
+}
+
 /* diseños de la parte de footer o creditos */
 footer{
   font-style: italic;
@@ -262,46 +288,6 @@ footer{
   height: 100%;
   flex-grow: 1;
   text-align: center;
-}
-
-/* diseños del texto que tieie un tipo de animacion de fuego */
-.texto-fuego {
-  font-size: 5rem;
-  font-weight: bold;
-  text-align: center;
-  color: #fff;
-  animation: fuego 1s infinite;
-  font-family: 'Impact', sans-serif;
-  margin-top: 30px;
-}
-.texto-index-fuego {
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
-  color: #fff;
-  animation: fuego 3s infinite;
-  font-family: "Bangers", cursive;
-  margin-top: 30px;
-}
-
-/*jueguen con los colores del texto del index*/
-@keyframes fuego {
-  0% {
-    text-shadow: 0 0 5px rgb(135, 102, 255), 0 0 10px rgb(61, 22, 170), 0 0 15px rgb(37, 0, 48);
-    color: #fff;
-  }
-  50% {
-    text-shadow: 0 0 10px rgb(135, 102, 255), 0 0 20px rgb(61, 22, 170), 0 0 30px rgb(37,0,48);
-    color: rgb(45, 8, 59);
-  }
-  100% {
-    text-shadow: 0 0 5px rgb(135, 102, 255), 0 0 10px rgb(61, 22, 170), 0 0 15px rgb(37,0,48);
-    color: #fff;
-  }
-}
-
-.boton-header{
-  background-color: rgba(134, 6, 6, 0.829);
 }
 
 @media (max-width: 767px) {
@@ -396,7 +382,6 @@ footer{
   }
 }
 
-
 /*reponsividad para la pantallas de protatil y la de Darwin que es mas grande*/
 @media (min-width: 768px) and (max-width: 1550px) {
   #logo {
@@ -422,17 +407,6 @@ footer{
     width: 100%;
     max-width: 20rem;
   }
-  /* .contenedor-arena {
-    flex-direction: row;
-    gap: 1rem;
-  }
-  .botonarena {
-    width: 150px;
-    height: 60px;
-  }
-  .botonarena h1 {
-    font-size: 1rem;
-  } */
 }
 
 
