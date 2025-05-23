@@ -8,8 +8,8 @@
   <script src="/js/cards.js" defer></script>
   <script src="/js/buscador.js"></script>
   <!-- importaciones de estilos -->
-  <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/cards.css">
+  <link rel="stylesheet" href="/css/main.css">
   <link rel="icon" href="/assets/img/logo.png" type="image/png">
 </head>
 <body>
@@ -22,28 +22,29 @@
       <a href="/html/arena.html"><button id="btn-arena" class="nav-button">Arena</button></a>
     </nav>
   </header>
+  <main>
+    <search-box>
+      <div class="row">
+        <input type="text" 
+          class="search-bar" 
+          placeholder="Buscar personaje...                                                                                                                                                                                                             " 
+          autocomplete="true"
+        >
+      </div>
+    </search-box>
 
-  <search-box>
-    <div class="row">
-      <input type="text" 
-        class="search-bar" 
-        placeholder="Buscar personaje...                                                                                                                                                                                                             " 
-        autocomplete="true"
-      >
+    <div class="heroes">
+      <cartas-dc filtro="Batman"></cartas-dc>
+      <cartas-dc filtro="Joker"></cartas-dc>
+      <cartas-dc filtro="Linterna Verde"></cartas-dc>
+      <cartas-dc filtro="Flash"></cartas-dc>
+      <cartas-dc filtro="Superman"></cartas-dc>
     </div>
-  </search-box>
-
-  <div class="heroes">
-    <cartas-dc filtro="Batman"></cartas-dc>
-    <cartas-dc filtro="Joker"></cartas-dc>
-    <cartas-dc filtro="Linterna Verde"></cartas-dc>
-    <cartas-dc filtro="Flash"></cartas-dc>
-    <cartas-dc filtro="Superman"></cartas-dc>
-  </div>
-</body>
+  </main>
   <footer>
       ©Campuslands 2025,
       ©MARVEL Comis 2025, todos los derechos reservados
       ©DC comics 2025, todos los derechos reservados
-    </footer>
+  </footer>
+</body>
 </html>

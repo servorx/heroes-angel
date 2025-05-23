@@ -26,12 +26,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #111113;
+  background: linear-gradient(to right, #1a1a2e, #16213e, #0f3460);
   padding: 0 3rem;
   height: 10rem; 
   box-sizing: border-box;
-  /* esto genera un efecto de sombra intensa */
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 5);
+  /* esto genera un efecto de sombra sutil */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 0.2), 0 0 15px rgba(0, 0, 255, 0.2);
   /* agregue animaciones en el header de aparecer lentamente, los pixeles y el ultimo valor es para el sombreado del header */
   /*  el segundo valor define los segundos que se demora la animacion */
   /* animacion al cargar */
@@ -42,15 +42,17 @@ header {
   width: 5.5rem;
   border-radius: 50%;
   /* se le añade un diseño de sombreado y de animacion al logo para que destaque, el transition es para que tome forma de circulo en un tiempo determinado */
-  transition: all 3s ease;
-  /* sombreado de la imagen del logo */
-  box-shadow: 0 0 15px rgba(91, 192, 190, 0.3);
+  transition: all 0.5s ease;
+  /* efecto de brillo de la imagen del logo */
+  box-shadow: 0 0 15px rgba(91, 192, 190, 0.3); 
   height: auto;
 }
 
 /* para que al momento de pasar el cursor por la imagen se haga un efecto de aumento */
 #logo:hover {
   transform: scale(1.1);
+  /* el filter es un efecto similar a una animacion */
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 /* diseños de la barra de navegfacion con los botones principales */
@@ -75,14 +77,18 @@ nav {
   font-weight: bold;
   cursor: pointer;
   border-radius: 12px;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
   border: 2px solid #fff;
+  /* convertir a mayuscula */
+  text-transform: uppercase;
+  /* agregarle un poco de espaciado a la letra porque se veía muy pegado el texto */
+  letter-spacing: 1px;
 }
 
-/* accio nde hacer hover en cualquiera de los botones */
+/* accion de hacer hover en cualquiera de los botones */
 .nav-button:hover{
   background-color: #7d0f0f;
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.05);
   transition: all 0.5s ease;
   box-shadow: 0px 10px 20px rgb(191, 196, 201);
 }
@@ -111,7 +117,7 @@ nav {
   background-color: #650000c7;
   transform: translateY(-10px);
   transition: all 0.3s ease;
-  box-shadow: 30px 30px 30px rgb(191, 196, 201, );
+  box-shadow: 30px 30px 30px rgb(191, 196, 201, 0.5);
 }
 
 /* Este es el keyframe de la animacion apear*/
@@ -129,10 +135,10 @@ nav {
 
 /* contenido de la parte principal de la pagina Home */
 main {
-  /* padding: 5rem 1.3rem;
-  text-align: center; */
   flex: 1;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* efecto de sombreado para todo el contenido de la pagina, sin contar header y footer */
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
 /* contenedor de app, es decir, la parte principal */
@@ -156,6 +162,11 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* Efecto de bordeado para el container*/
+  /* border: 8px solid;
+  border-image: linear-gradient(45deg, #ff0000, #0000ff) 1;
+  border-radius: 10px;
+  margin: 1.2rem; */
 }
 
 /* diseño de la imagen principal del comienzo */
@@ -172,6 +183,14 @@ main {
   width: 20rem;
   height: 100%;
   object-fit: cover;
+  /* Efecto de brillo para imágenes de héroes */
+}
+
+.imagen-container img:hover {
+  transform: scale(1.01);
+  /* el filter para que se acomode a la imagen */
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+  transition: all 0.5s ease;
 }
 
 .transparent-container {
@@ -191,6 +210,8 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* texto mejor dise;ado y legible */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* diseños del titulo principal */
@@ -201,6 +222,9 @@ h1{
   position: relative;
   display: inline-block;
   text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  /* a;adile mayor espaciado a las letras y que sean mayusculas por defecto */
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 /* diseños del texto que tieie un tipo de animacion de fuego */
@@ -209,30 +233,31 @@ h1{
   font-weight: bold;
   text-align: center;
   color: #fff;
-  animation: fuego 1s infinite;
-  margin-top: 30px;
+  animation: fuego 4s infinite;
+  margin-top: 2rem;
 }
+
 .texto-index-fuego {
   font-size: 3rem;
   font-weight: bold;
   text-align: center;
   color: #fff;
-  animation: fuego 3s infinite;
-  margin-top: 30px;
+  animation: fuego 4s infinite;
+  margin-top: 2rem;
 }
 
 /*jueguen con los colores del texto del index*/
 @keyframes fuego {
   0% {
-    text-shadow: 0 0 5px #e63946, 0 0 10px #d62828;
+    text-shadow: 0 0 4px #d00000, 0 0 8px #d00000;
     color: #fff;
   }
   50% {
-    text-shadow: 0 0 10px rgb(135, 102, 255), 0 0 20px rgb(61, 22, 170), 0 0 30px rgb(37,0,48);
-    color: rgb(45, 8, 59);
+    text-shadow: 0 0 8px #0077b6, 0 0 16px #0077b6;
+    color: #fff;
   }
   100% {
-    text-shadow: 0 0 5px #0077b6, 0 0 10px #1d3557;
+    text-shadow: 0 0 4px #d00000, 0 0 8px #d00000;
     color: #fff;
   }
 }
@@ -244,7 +269,7 @@ h1{
   justify-content: center;
   width: 160px;
   padding: 1.5rem;
-  margin-top: 2%;
+  margin-top: 10%;
   background: linear-gradient(135deg, #3a1c6c, rgba(61, 22, 99, 0.925));
   color: white;
   border-radius: 20px;
@@ -252,6 +277,8 @@ h1{
   text-decoration: none;
   font-weight: bold;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  border: 3px solid #fff;
 }
 
 .botonarena a {
@@ -273,7 +300,7 @@ h1{
 }
 
 .boton-header{
-  background-color: rgba(134, 6, 6, 0.829);
+  background-color: rgba(134, 6, 6, 0.8);
 }
 
 /* diseños de la parte de footer o creditos */
@@ -281,7 +308,7 @@ footer{
   font-style: italic;
   display: flex;
   justify-content: center;
-  background-color: #111113;
+  background: linear-gradient(to right, #1a1a2e, #16213e, #0f3460);
   padding: 3rem;
   gap: 1rem;
   color: white;
@@ -291,7 +318,7 @@ footer{
 }
 
 @media (max-width: 767px) {
-  /* Ajustes de header */
+  /* diseño de header */
   header {
     flex-direction: column;
     height: auto;
@@ -316,7 +343,7 @@ footer{
     flex-grow: 1;
   }
   
-  /* Ajustes de contenedores */
+  /* diseño de contenedores */
   .homecont {
     width: auto;
     max-width: 80%;
@@ -337,7 +364,7 @@ footer{
     width: 10rem;
   }
 
-  /* Ajustes de texto pagina principal*/
+  /* diseño de texto pagina principal*/
   .texto-index-fuego {
     font-size: 2rem;
     margin-top: 15px;
@@ -352,7 +379,7 @@ footer{
     margin: 5% auto;
   }
   
-  /* Ajustes de texto */
+  /* diseño de texto */
   h1 {
     font-size: 1rem;
   }
@@ -368,14 +395,14 @@ footer{
     font-size: 2rem;
   }
   
-  /* Ajustes de botones */
+  /* diseño de botones */
   .botonarena {
     width: 6rem;
     padding: 1.2rem;
     margin: 0.5rem;
   }
   
-  /* Ajustes de footer */
+  /* diseño de footer */
   footer {
     padding: 2rem 1rem;
     flex-wrap: wrap;
