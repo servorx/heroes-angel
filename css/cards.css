@@ -1,13 +1,10 @@
 .heroes {
-  margin: 5%;
+  margin: 5% 10%;
   display: flex;
-  /* bloque de fondo semi transparente  */
-  width: 65%;
-  gap: 1.25rem;
-  margin-left: 10%;
-  margin-right: 10%;
+  width: auto;
+  gap: 3rem;
   color: #fff;
-  padding: 10rem;
+  padding: 8rem 2rem;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -15,6 +12,48 @@
   flex-wrap: wrap;
 }
 
-@media (min-) {
-  
+
+/* movil */
+@media (max-width: 767px) {
+  .heroes {
+    margin: 3% 5%;
+    gap: 1.5rem;
+    padding: 3rem 1rem;
+    flex-direction: column;
+  }
+}
+
+/* movil pero vertical */
+@media (max-width: 767px) and (orientation: landscape) {
+  .heroes {
+    flex-direction: row;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+}
+
+/* pantallas de tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .heroes {
+    margin: 4% 8%;
+    gap: 2.5rem;
+    padding: 5rem 2rem;
+  }
+}
+
+/* pantallas de tablet verticales */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .heroes {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+/* pantallas de portatil */
+@media (min-width: 1025px) and (max-width: 1367px) {
+  .heroes {
+    margin: 5% 10%;
+    gap: 3rem;
+    padding: 2rem 2rem;
+  }
 }

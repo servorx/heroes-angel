@@ -24,7 +24,7 @@ class CartasMarvel extends HTMLElement {
           height: 100%;
           text-decoration: none;
           transform-style: preserve-3d;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0px 20px rgba(0, 255, 255, 0.2);
           border-radius: 15px;
           cursor: pointer;
           transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -32,9 +32,13 @@ class CartasMarvel extends HTMLElement {
         }
 
         .card:hover { 
-          transform: translateY(-10px) scale(1.03) rotateZ(1deg);
-          box-shadow: 0 12px 24px rgba(255, 0, 0, 0.3), 0 12px 24px rgba(255, 0, 0, 0.3);
+          transform: translateY(-10px) scale(1.05) rotateZ(1deg);
+          box-shadow: 0 15px 30px rgba(255, 0, 0, 0.6), 0 0 20px rgba(0, 255, 255, 0.5);
         } 
+
+        .card:hover img {
+          transform: scale(1.05);
+        }
 
         .card.flipped {
           transform: rotateY(180deg);
@@ -54,9 +58,9 @@ class CartasMarvel extends HTMLElement {
           backface-visibility: hidden;
           border-radius: 15px;
           overflow: hidden;
-          background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
-          border: 4px solid #444;
-          box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+          background: linear-gradient(135deg, #111 0%, #222 100%);
+          border: 4px solid #666;
+          box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.2);
         }
 
         .card-back {
@@ -71,6 +75,8 @@ class CartasMarvel extends HTMLElement {
           max-height: 75%;
           object-fit: cover;
           border-bottom: 2px solid #555;
+          filter: contrast(1.1) brightness(1.1);
+          transition: transform 0.4s ease;
         }
 
         .card-content {
@@ -78,12 +84,13 @@ class CartasMarvel extends HTMLElement {
         }
 
         #nombreClave {
-          font-size: 1.3rem;
-          color: #FF6B6B ;
+          font-size: 1.4rem;
+          color: #FF3C3C ;
           font-weight: bold;
           margin-bottom: 0.5rem;
-          text-shadow: 1px 1px 2px #000;
+          text-shadow: 2px 2px 5px #000;
           text-transform: uppercase;
+          letter-spacing: 1px;
         }
 
         #nombre {
@@ -97,14 +104,16 @@ class CartasMarvel extends HTMLElement {
         #universo {
           font-size: 1rem;
           font-weight: bolder;
-          color: #ccc;
+          color: #00ccff;
           margin-top: 0.5rem;
+          text-shadow: 0 0 2px #00ccff;
         }
 
         .info-label {
           font-weight: bold;
           margin-top: 1.2rem;
           color: #f0f0f0;
+          text-shadow: 0 0 3px #ff0066;
         }
 
         .stats {
@@ -123,15 +132,21 @@ class CartasMarvel extends HTMLElement {
         .stat-value {
           font-size: 1.2rem;
           font-weight: bold;
-          color: #fff;
-          text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 5px rgba(255, 0, 0, 0.5);
-        }
+          color: #0fc;
+          text-shadow: 0 0 6px rgba(0, 255, 255, 0.7), 0 0 8px rgba(255, 0, 0, 0.5); }
 
         .stat-label {
           font-size: 0.8rem;
-          margin-left: 1rem;
-          margin-right: 1rem;
           color: #ccc;
+        }
+
+        .info-value {
+          color: #ddd;
+          font-size: 0.9rem;
+          margin-top: 0.2rem;
+          line-height: 1.2rem;
+          text-align: center;
+          text-shadow: 0 0 2px #000;
         }
 
         @media (max-width: 768px) {
@@ -299,7 +314,7 @@ customElements.define('cartas-marvel', CartasMarvel);
 
 
 // componente de las cartas de DC
-class Cartasdc extends HTMLElement {
+class CartasDc extends HTMLElement {
   constructor() {
     super();
     // esto es para permitir el shadow DOM
@@ -593,4 +608,4 @@ class Cartasdc extends HTMLElement {
   }
 }
 
-customElements.define('cartas-dc', Cartasdc);
+customElements.define('cartas-dc', CartasDc);

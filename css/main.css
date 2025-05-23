@@ -78,7 +78,7 @@ nav {
   cursor: pointer;
   border-radius: 12px;
   transition: all 0.3s;
-  border: 2px solid #fff;
+  border: 3px solid #fff;
   /* convertir a mayuscula */
   text-transform: uppercase;
   /* agregarle un poco de espaciado a la letra porque se veía muy pegado el texto */
@@ -88,14 +88,14 @@ nav {
 /* accion de hacer hover en cualquiera de los botones */
 .nav-button:hover{
   background-color: #7d0f0f;
-  transform: translateY(-5px) scale(1.05);
+  transform: translateY(-5px);
   transition: all 0.5s ease;
   box-shadow: 0px 10px 20px rgb(191, 196, 201);
 }
 
 /* cuando el boton esta activo cambia su diseño */
 .nav-button.active {
-  background-color: #07314de2;
+  background-color: #073142;
   transition: all 0.5s ease;
   color: #fff;
   box-shadow: 0px 4px 20px rgb(14, 19, 34) ;
@@ -317,6 +317,7 @@ footer{
   text-align: center;
 }
 
+/* responsive para pantllas de celulares */
 @media (max-width: 767px) {
   /* diseño de header */
   header {
@@ -409,32 +410,134 @@ footer{
   }
 }
 
-/*reponsividad para la pantallas de protatil y la de Darwin que es mas grande*/
-@media (min-width: 768px) and (max-width: 1550px) {
-  #logo {
-    width: 4.5rem;
+/* responsividad para pantallas horizontales de movil */
+@media (max-width: 767px) and (orientation: landscape) {
+  header {
+    padding: 0.5rem 1rem;
     height: auto;
   }
+  
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
   .nav-button {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
-
+  
   .homecont {
-    width: 100%;
-    max-width: 60rem;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-    font-size: 1rem;
+    padding: 2rem 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
+  
+  .imagen-container {
+    width: 40%;
+  }
+  
   .texto-contenido {
-    max-width: 90%;
+    width: 60%;
   }
-  .contenedortranspa{
-    width: 100%;
-    max-width: 20rem;
+  
+  .texto-fuego, .texto-index-fuego {
+    font-size: 2rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
   }
 }
+
+/* responsividad para tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  header {
+    padding: 0 2rem;
+    height: 8rem;
+  }
+  
+  #logo {
+    width: 5rem;
+  }
+  
+  nav {
+    gap: 1.5rem;
+    margin: 0 2rem;
+  }
+  
+  .nav-button {
+    padding: 1rem 1.8rem;
+    font-size: 1.2rem;
+  }
+  
+  .homecont {
+    width: 90%;
+    max-width: 50rem;
+    padding: 5rem 2rem;
+  }
+  
+  .imagen-container img {
+    width: 15rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .texto-contenido {
+    font-size: 1.3rem;
+  }
+  
+  .texto-fuego {
+    font-size: 4rem;
+  }
+  
+  .texto-index-fuego {
+    font-size: 2.5rem;
+  }
+}
+
+/*reponsividad para la pantallas de portatil */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  header {
+    padding: 0 2.5rem;
+    height: 9rem;
+  }
+  
+  #logo {
+    width: 5rem;
+  }
+  
+  nav {
+    gap: 2rem;
+  }
+  
+  .nav-button {
+    padding: 1.1rem 2rem;
+    font-size: 1.3rem;
+  }
+  
+  .homecont {
+    width: 80%;
+    max-width: 60rem;
+    padding: 6rem 3rem;
+  }
+  
+  .imagen-container img {
+    width: 18rem;
+  }
+  
+  h1 {
+    font-size: 2.8rem;
+  }
+  
+  .texto-contenido {
+    font-size: 1.4rem;
+  }
+}
+
 
 
 /* explicacion de las animaciones personalizadas. Estructura basica: 

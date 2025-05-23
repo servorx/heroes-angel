@@ -8,57 +8,62 @@ class SearchBox extends HTMLElement {
         .search-box {
           display: flex;
           justify-content: center;
-          margin: 2rem auto 4rem auto;
-          padding: 10px;
+          align-items: center;
+          margin: 3rem auto 4rem auto;
+          padding: 1rem;
           width: 100%;
-          max-width: 50rem;
+          max-width: 45rem;
+          border-radius: 30px;
         }
 
         input[type="text"] {
           width: 100%;
-          height: 50px;
-          padding: 0 20px;
-          font-size: 1.1rem;
-          font-weight: 600;
-          border-radius: 25px;
-          border: 2px solid #6c63ff;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-          background-color: #f0f0f5;
-          color: #222;
+          height: 3.5rem;
+          padding: 0 1.5rem;
+          font-size: 1.2rem;
+          letter-spacing: 1px;
+          border-radius: 30px;
+          border: 3px solid #ff003c; 
+          background-color: #0d1117;
+          color: #fff;
           transition: all 0.3s ease-in-out;
           outline: none;
         }
 
+        input[type="text"]::placeholder {
+          color: rgba(255, 255, 255, 0.5);
+        }
+
         input[type="text"]:focus {
-          border-color: #111113;
-          box-shadow: 0 0 12px rgba(17, 17, 17, 0.7);
-          background-color: #ffffff;
+          border-color: #007bff; 
+          box-shadow: 0 0 15px rgba(0, 123, 255, 0.7), 0 0 10px rgba(255, 0, 60, 0.5);
+          background-color: #121826;
         }
 
         @media (max-width: 768px) {
           .search-box {
-            max-width: 90%;
-            margin: 1.5rem auto 3rem auto;
-            padding: 0.5rem;
+            flex-direction: column;
+            max-width: 70%;
+            margin: 2rem;
+            padding: 1rem;
           }
-          
           input[type="text"] {
             height: 3rem;
-            font-size: 0.6rem;
+            font-size: 1rem;
             padding: 0 1rem;
+            border-radius: 25px;
           }
         }
       </style>
 
       <div class="search-box">
-        <input type="text" placeholder="🔍 Buscar personaje por seudonimo o nombre clave..." />
+        <input type="text" placeholder="🔍 Buscar personaje por seudónimo o nombre clave..." autocomplete="on"/>
       </div>
     `;
   }
 
   connectedCallback() {
     const input = this.shadowRoot.querySelector('input');
-
     input.addEventListener('input', (e) => {
       const valor = e.target.value;
 
@@ -76,15 +81,34 @@ class SearchBox extends HTMLElement {
 
 customElements.define('search-box', SearchBox);
 
+// Mostrar tarjetas de héroes
+fetch('http://localhost:3000/personajes')
+  .then(res => res.json())
+  .then(data => {
+    const contenedor = document.querySelector('.heroes');
+
+    data.forEach(hero => {
+      const tarjeta = document.createElement('div');
+      tarjeta.classList.add('tarjeta-hero', `cartas-${hero.editorial.toLowerCase()}`);
+
+      tarjeta.innerHTML = /* HTML */`
+        <h2 class="nombre">${hero.nombre}</h2>
+        <p><strong>Alias:</strong> ${hero.alias}</p>
+        <p><strong>Editorial:</strong> ${hero.editorial}</p>
+      `;
+
+      contenedor.appendChild(tarjeta);
+    });
+  });
+
+// Filtrar tarjetas en tiempo real
 document.querySelector("search-box").addEventListener("input", (e) => {
   const searchText = e.detail.toLowerCase();
-
   const todasLasCartas = document.querySelectorAll(".cartas-dc, .cartas-marvel");
 
   todasLasCartas.forEach(hero => {
-    const nombre = hero.querySelector("nombre");
+    const nombre = hero.shadowRoot?.querySelector("nombre");
     if (!nombre) return;
-
 
     const nameText = nombre.textContent.toLowerCase();
     hero.style.display = nameText.includes(searchText) ? "block" : "none";
