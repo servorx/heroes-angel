@@ -191,7 +191,7 @@ main {
 }
 
 .btn-aleatorio,
-#btn-comenzar-pelea {
+.pelea {
   margin-top: 10px;
   padding: 10px 20px;
   background-color: #ff3131;
