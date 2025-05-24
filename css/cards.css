@@ -12,6 +12,16 @@
   flex-wrap: wrap;
 }
 
+.tarjeta-hero {
+  background: #121826;
+  border: 2px solid #ff003c;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 15px;
+  width: 250px;
+  box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
+}
+
 
 /* movil */
 @media (max-width: 767px) {
