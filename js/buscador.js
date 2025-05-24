@@ -57,100 +57,32 @@ class SearchBox extends HTMLElement {
       </style>
 
       <div class="search-box">
-        <input type="text" placeholder="🔍 Buscar personaje por nombre o nombre clave..." autocomplete="on"/>
+        <input type="text" placeholder="🔍 Buscar personaje por nombre o nombre clave..." id="buscador"/>
       </div>
     `;
     this.shadowRoot.innerHTML = templateSearchBox;
   }
-
-  // permite que el evento input suba al DOM principal
+  // permite que el evento input suba al DOM principal, se llama a este callback cuando se carga la pagina por s
   connectedCallback() {
+    // se obtiene el shadow input que esta adentro de la barra de busqueda 
     const input = this.shadowRoot.querySelector('input');
-    input.addEventListener('input', (e) => {
-      const valor = e.target.value;
 
-      this.dispatchEvent(new CustomEvent('input', {
-        detail: valor,
-        bubbles: true,
-        composed: true
-      }));
+    // agrega el listener de modo que cuando se ingresa un valor en el input, se pasa a minusculas, el target se usa para retonar el objeto que se ingresa
+    input.addEventListener('input', () => {
+      const valor = input.value.toLowerCase();
 
-      const fakeInput = document.querySelector('#fake-search');
-      if (fakeInput) fakeInput.value = valor;
+      // Obtener todas las cartas DC y Marvel del documento principal
+      const cartasDC = document.querySelectorAll('.heroes cartas-dc');
+      const cartasMarvel = document.querySelectorAll('.heroes cartas-marvel');
+
+      // Combinar todas las cartas en un solo arreglo
+      [...cartasDC, ...cartasMarvel].forEach(carta => {
+        const filtro = carta.getAttribute('filtro')?.toLowerCase() || '';
+        // obtiene el valor del filtro y en caso de que coincidan con el input o con una parte, muestran la carta con el mismo nombre del filtro que se ingreso
+        carta.style.display = filtro.includes(valor) ? 'block' : 'none';
+      });
     });
   }
 }
 customElements.define('search-box-label', SearchBox);
 
-
-
-function mostrarPersonajes(filtro) {
-  const cartas = document.querySelectorAll('.heroes cartas-dc');
-  
-  cartas.forEach(carta => {
-    const nombre = carta.getAttribute('filtro');
-    // Mostrar solo las cartas que coincidan o todas si el filtro es "Todos"
-    if (filtro === 'Todos' || nombre === filtro) {
-      carta.style.display = 'block';
-    } else {
-      carta.style.display = 'none';
-    }
-  });
-}
-
-// Este evento se dispara desde el componente web personalizado cuando el usuario escribe en el input
-document.addEventListener('input', (event) => {
-  const textoBusqueda = event.detail.toLowerCase(); // lo pasamos a minúsculas para comparación
-
-  const personajesFiltrados = personajes.filter(p =>
-    p.universo === "DC" && (
-      p.nombre.toLowerCase().includes(textoBusqueda) ||
-      p.nombreClave.toLowerCase().includes(textoBusqueda)
-    )
-  );
-
-  mostrarPersonajes(personajesFiltrados);
-});
-
-
-
-// fetch de personajes
-let personajes = [];
-fetch('http://localhost:3000/personajes')
-  .then(res => res.json())
-  .then(data => {
-    personajes = data;
-    mostrarPersonajes(personajes);
-  });
-
-function crearCard(personaje) {
-  const card = document.createElement('div');
-  card.classList.add('personaje');
-  card.innerHTML = `
-    <img src="${personaje.imagen}" alt="${personaje.nombre}" />
-    <h2>${personaje.nombre} (${personaje.nombreClave})</h2>
-    <p><strong>Universo:</strong> ${personaje.universo}</p>
-    <p><strong>Descripción:</strong> ${personaje.descripcion}</p>
-    <p><strong>Ataque:</strong> ${personaje.ataque}</p>
-    <p><strong>Resistencia:</strong> ${personaje.resistencia}</p>
-    <p><strong>Debilidad:</strong> ${personaje.debilidad}</p>
-  `;
-  return card;
-}
-
-function mostrarPersonajes(lista) {
-  const contenedor = document.getElementById('personajesContainer');
-  contenedor.innerHTML = '';
-  lista.forEach(personaje => contenedor.appendChild(crearCard(personaje)));
-}
-
-// Escuchar input desde el componente
-document.querySelector('search-box-label')
-  .addEventListener('input', (e) => {
-    const texto = e.detail.toLowerCase();
-    const filtrados = personajes.filter(p =>
-      p.nombre.toLowerCase().includes(texto) || 
-      p.nombreClave.toLowerCase().includes(texto)
-    );
-    mostrarPersonajes(filtrados);
-  });

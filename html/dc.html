@@ -37,20 +37,5 @@
       ©MARVEL Comis 2025, todos los derechos reservados
       ©DC comics 2025, todos los derechos reservados
   </footer>
-  <script>
-    document.querySelector('search-box-label').addEventListener('input', (event) => {
-      const filtro = event.detail.toLowerCase();
-      const cartas = document.querySelectorAll('.heroes cartas-dc');
-
-      cartas.forEach(carta => {
-        const valor = carta.getAttribute('filtro').toLowerCase();
-        if (valor.includes(filtro)) {
-          carta.style.display = 'block';
-        } else {
-          carta.style.display = 'none';
-        }
-      });
-    });
-  </script>
 </body>
 </html>
