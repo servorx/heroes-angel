@@ -303,6 +303,17 @@ h1{
   background-color: rgba(134, 6, 6, 0.8);
 }
 
+
+/* parte de la arena */
+.cartas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
 /* diseños de la parte de footer o creditos */
 footer{
   font-style: italic;
