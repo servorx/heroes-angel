@@ -1,6 +1,4 @@
 // componente de las cartas de marvel
-this.selected = false;
-
 class CartasMarvel extends HTMLElement {
   constructor() {
     super();
@@ -33,10 +31,10 @@ class CartasMarvel extends HTMLElement {
           scrollbar-width: none;
         }
 
-        .card:not(.seleccionada):hover {
+        .card:hover { 
           transform: translateY(-10px) scale(1.03) rotateZ(1deg);
           box-shadow: 0 12px 24px rgba(255, 65, 54, 0.6), 0 12px 24px rgba(255, 0, 0, 0.4);
-        }
+        } 
 
         .card.flipped {
           transform: rotateY(180deg);
@@ -148,19 +146,6 @@ class CartasMarvel extends HTMLElement {
           color: #f8dcdc;
         }
 
-        /* para las funcionalidades del modal js para escoger el personaje*/
-        .card.selected {
-          transform: none !important;
-          box-shadow: 0 0 12px 2px rgba(255, 255, 0, 0.7); /* resplandor dorado */
-          border: 4px solid #FFD700; /* borde dorado */
-        }
-
-        .card.selected:hover {
-          transform: none !important;
-          box-shadow: 0 0 12px 2px rgba(255, 255, 0, 0.7);
-        }
-
-
         @media (max-width: 768px) {
           :host {
             max-width: 14rem;
@@ -270,12 +255,6 @@ class CartasMarvel extends HTMLElement {
       } else {
         this.shadowRoot.querySelector(".nombre").textContent = "Personaje no encontrado";
       }
-
-      // manejador de click cuando se le click a la carta en la arena 
-      this.shadowRoot.querySelector('.card').addEventListener('click', () => {
-        this.selected = !this.selected;
-        this.shadowRoot.querySelector('.card').classList.toggle('selected', this.selected);
-      });
     });
   }
 
@@ -364,7 +343,7 @@ class CartasDc extends HTMLElement {
           scrollbar-width: none;
         }
 
-        .card:not(.seleccionada):hover {
+        .card:hover {
           transform: translateY(-10px) scale(1.03) rotateZ(1deg);
           box-shadow: 0 12px 24px rgba(69, 162, 158, 0.5), 0 12px 24px rgba(0, 255, 255, 0.3);
         }
@@ -470,17 +449,6 @@ class CartasDc extends HTMLElement {
           margin-left: 1rem;
           margin-right: 1rem;
           color: #c5c6c7;
-        }
-        /* para las funcionalidades del modal js para escoger el personaje*/
-        .card.selected {
-          transform: none !important;
-          box-shadow: 0 0 12px 2px rgba(255, 255, 0, 0.7); /* resplandor dorado */
-          border: 4px solid #FFD700; /* borde dorado */
-        }
-
-        .card.selected:hover {
-          transform: none !important;
-          box-shadow: 0 0 12px 2px rgba(255, 255, 0, 0.7);
         }
 
         @media (max-width: 768px) {
@@ -592,12 +560,6 @@ class CartasDc extends HTMLElement {
       } else {
         this.shadowRoot.querySelector(".nombre").textContent = "Personaje no encontrado";
       }
-      
-      // manejador de click cuando se le click a la carta en la arena 
-      this.shadowRoot.querySelector('.card').addEventListener('click', () => {
-        this.selected = !this.selected;
-        this.shadowRoot.querySelector('.card').classList.toggle('selected', this.selected);
-      });
     });
   }
   // este bloque de codigo es escencial para que el attributeChangedCallback funcione, sin el, no serviria el codigo a la hora de cambiar los valores

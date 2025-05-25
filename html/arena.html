@@ -7,6 +7,7 @@
   <title>ARENA DE BATALLA</title>
   <!-- importacion de estilos -->
   <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/arena.css">
   <!-- importacion de scripts -->
   <script src="/js/cards.js" defer></script>
   <script src="/js/arena.js"></script>
@@ -26,79 +27,31 @@
     <arena-gamemode-modal></arena-gamemode-modal>
     <!-- Arena visual principal -->
     <modal-seleccion id="modalSeleccion">
-        <!-- personajes aquí dentro -->
-      <div class="cartas-grid">
-        <cartas-dc filtro="Batman"></cartas-dc>
-        <cartas-dc filtro="Joker"></cartas-dc>
-        <cartas-dc filtro="Linterna Verde"></cartas-dc>
-        <cartas-dc filtro="Flash"></cartas-dc>
-        <cartas-dc filtro="Superman"></cartas-dc>
-        <cartas-marvel filtro="Iron Man"></cartas-marvel>
-        <cartas-marvel filtro="Spiderman"></cartas-marvel>
-        <cartas-marvel filtro="Moon Knight"></cartas-marvel>
-        <cartas-marvel filtro="Daredevil"></cartas-marvel>
-        <cartas-marvel filtro="Venom"></cartas-marvel>
-      </div>
-      <div class="cartas-grid">
-        <cartas-dc filtro="Batman"></cartas-dc>
-        <cartas-dc filtro="Joker"></cartas-dc>
-        <cartas-dc filtro="Linterna Verde"></cartas-dc>
-        <cartas-dc filtro="Flash"></cartas-dc>
-        <cartas-dc filtro="Superman"></cartas-dc>
-        <cartas-marvel filtro="Iron Man"></cartas-marvel>
-        <cartas-marvel filtro="Spiderman"></cartas-marvel>
-        <cartas-marvel filtro="Moon Knight"></cartas-marvel>
-        <cartas-marvel filtro="Daredevil"></cartas-marvel>
-        <cartas-marvel filtro="Venom"></cartas-marvel>
-      </div>
+        <cartas-dc slot="jugador1" filtro="Batman"></cartas-dc>
+        <cartas-dc slot="jugador1" filtro="Joker"></cartas-dc>
+        <cartas-dc slot="jugador1" filtro="Linterna Verde"></cartas-dc>
+        <cartas-dc slot="jugador1" filtro="Flash"></cartas-dc>
+        <cartas-dc slot="jugador1" filtro="Superman"></cartas-dc>
+        <cartas-marvel slot="jugador1" filtro="Iron Man"></cartas-marvel>
+        <cartas-marvel slot="jugador1" filtro="Spiderman"></cartas-marvel>
+        <cartas-marvel slot="jugador1" filtro="Moon Knight"></cartas-marvel>
+        <cartas-marvel slot="jugador1" filtro="Daredevil"></cartas-marvel>
+        <cartas-marvel slot="jugador1" filtro="Venom"></cartas-marvel>
+        <cartas-dc slot="jugador2" filtro="Batman"></cartas-dc>
+        <cartas-dc slot="jugador2" filtro="Joker"></cartas-dc>
+        <cartas-dc slot="jugador2" filtro="Linterna Verde"></cartas-dc>
+        <cartas-dc slot="jugador2" filtro="Flash"></cartas-dc>
+        <cartas-dc slot="jugador2" filtro="Superman"></cartas-dc>
+        <cartas-marvel slot="jugador2" filtro="Iron Man"></cartas-marvel>
+        <cartas-marvel slot="jugador2" filtro="Spiderman"></cartas-marvel>
+        <cartas-marvel slot="jugador2" filtro="Moon Knight"></cartas-marvel>
+        <cartas-marvel slot="jugador2" filtro="Daredevil"></cartas-marvel>
+        <cartas-marvel slot="jugador2" filtro="Venom"></cartas-marvel>
     </modal-seleccion>
+
   </main>
   <footer>
     ©Campuslands 2025, ©MARVEL Comics 2025, todos los derechos reservados. ©DC Comics 2025, todos los derechos reservados.
   </footer>
-    <!-- Modal selección personajes -->
-    <!-- quité el style="display:none;" y lo puse en el css de arena en el id modal-combate para que no salga error en el html -->
-    <!-- <div id="modal-combate" class="modal">
-      <div class="modal-content">
-        <span class="close" id="cerrar-modal">&times;</span>
-        <h2>Selecciona tus personajes</h2>
-        <div class="seleccion-jugadores">
-          <div class="jugador" id="jugador1">
-            <h3>Jugador 1</h3>
-            <div class="tarjetas" id="tarjetas-jugador1"></div>
-            <button class="btn-aleatorio" onclick="seleccionarAleatorio(1)">Seleccionar aleatorio</button>
-          </div>
-
-          <div class="jugador" id="jugador2">
-            <h3>Jugador 2</h3>
-            <div class="tarjetas" id="tarjetas-jugador2"></div>
-            <button class="btn-aleatorio" onclick="seleccionarAleatorio(2)">Seleccionar aleatorio</button>
-          </div>
-        </div>
-
-        <!-- Ya no necesitamos este botón, pero lo dejamos comentado por si necesitas volver a usarlo -->
-        <!-- <button id="btnIniciarSeleccion">Iniciar batalla</button> -->
-      <!-- </div>
-    </div>  -->
-
- <!-- Modal de batalla -->
-  <!-- <div id="modal-batalla" class="modal">
-    <div class="modal-content">
-      <span class="close" id="cerrar-modal-batalla">&times;</span>
-      <h2>¡La batalla ha comenzado!</h2>
-
-      <div class="combate-personajes">
-        <div class="personaje-seleccionado" id="jugador1-info">
-          <!-- Contenido generado por JS 
-        </div>
-
-        <div class="personaje-seleccionado" id="jugador2-info">
-          <!-- Contenido generado por JS 
-        </div>
-      </div>
-
-      <div id="logCombate" class="log-combate"></div>
-    </div>
-  </div> -->
 </body>
 </html>
